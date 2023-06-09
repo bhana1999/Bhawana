@@ -1,23 +1,23 @@
 const express = require("express") // Requiring express framework.
 const router = express.Router()
-const NFTscontroller = require("../controllers/NFTscontroller") //importing controller
-const{authentication}=require("../middilware/middilware") //importing middleware file
+const Taskcontroller = require("../controllers/Taskcontroller") //importing controller
 
 
-//--------------------API for Create NFTs----------------------------------------------//
-router.post("/createNFTs", NFTscontroller.createNFTs)
 
-//-------------------API for get  particular NFTs---------------------------------------//
-router.get("/NFTS/:NFTSId",authentication, NFTscontroller.getNFTsById)
+//--------------------API for Create Task----------------------------------------------//
+router.post("/createTask", Taskcontroller.createTask)
 
-//------------------API for get/read All NFTs---------------------------------------------//
-router.get("/NFTs",authentication, NFTscontroller.getNFTs);
+//-------------------API for get  particular Task---------------------------------------//
+router.get("/Task/:TaskId", Taskcontroller.getTaskById)
 
-//------------------API for deleting particular NFTs-------------------------------------//
-router.delete("/NFTs/:NFTsId", authentication, NFTscontroller.deleteNFTs)
+//------------------API for get/read All Task---------------------------------------------//
+router.get("/Task", Taskcontroller.getTasks);
 
-//-----------------API for Updating particular NFTs-----------------------------------//
-router.put("/updatedNFTs/:NFTsId", authentication,NFTscontroller.UpdateNFTs)
+//------------------API for deleting particular Task-------------------------------------//
+router.delete("/Task/:TaskId",Taskcontroller.deleteTask)
+
+//-----------------API for Updating particular Task-----------------------------------//
+router.put("/updatedTask/:TaskId",Taskcontroller.UpdateTask)
 
 
 module.exports = router
